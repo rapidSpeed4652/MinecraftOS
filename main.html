@@ -1,44 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        @font-face {
-        font-family: myFont; /* set name */
-        src: url(font.ttf); /* url of the font */
-        }
+<head>
+<style>
+@font-face {
+    font-family: myFont;
+    src: url("font.ttf");
+}
 
-        p {
-        font-family: myFont; /* use font */
-        }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
 
-        h1 {text-align: center;}
-        h2 {text-align: center;}
-        img {text-align: center;}
-        p {text-align: center;}
-        div {text-align: center;}
-    </style>
+    background-image: url("./menu_background.png");
+    background-repeat: repeat;
+    background-size: 32px 32px;
+    image-rendering: pixelated;
 
-  <body style="background-color: #8EC6C5; font-family:myFont; font-size:18px">
-  <img style="object-fit:cover;" src="./banner.png" width="1455" height="200"/>
-  <h1 style="padding: 50px; color:grey;">BookOS v.1.0</h1>
-  <h2>Hobbies:</h2>
-  <p>> Coding ofc :3</p>
-  <p>> Reading (dark romance ifykyk)</p>
-  <p>> Badminton (staying fit is necessary :P)</p>
-  <p>> Minecraft (gotta love the hustle :O)</p>
+    font-family: myFont;
+    font-size: 18px;
+    color: white;
+}
+
+h1, h2, p, div {
+    text-align: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div style="position: absolute; width: 100%; display: flex;border-radius: 32px; backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.25); justify-content: space-between;color:grey;">
+  <p style="margin-left: 20px;">
+
+      MinecraftOS v.1.0
+
   </p>
 
-  <h2>My Playlists: </h2>
-  <a href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">> my phonk playlist</a>
-  <p>
+  <p id="timeElement" style="margin-right: 20px;">
+
+      9/7/2026 6:40 PM
 
   </p>
-  <a href="https://www.youtube.com/playlist?list=PLT7Ol2AKWklDM96JOvUnGxAwjQfPcoVIT&jct=kpF7UOUDaDaVEP0KeVHwJQ">> gimme your recommendations!!</a>
+</div>
 
-  <h2>my fav mc servers:</h2>
-  <p>> Cubecraft </p>
-  <p>> Galaxite </p>
-  <p>> MinevilleZeqa</p>
-  <p>> HC SMP</p>
-  </body>
+<div id="welcome" styles="">
+  <h1 style="color: grey; position: absolute; top: 15%; right: 25%;">Welcome to MinecraftOS v.1.0!</h1>
+
+  <p id="welcomeheader" style="color: grey; position: absolute; top: 25%; right: 38%;">
+
+      It describes my personality!
+
+  </p>
+</div>
+
+<div>
+    <p style="cursor: pointer; width: 900px; position: absolute; top: 3%;" id="hobbyopen">Open</p>
+</div>
+
+<div id="window" style="border:2px solid grey; width:500px; padding:16px; position:absolute; top:40%; left:60%;border-radius: 32px; color: grey">
+    <p style="cursor: pointer; width: 80px; position: absolute; top: 3%;" id="hobbyclose">Close</p>
+    <h2>Hobbies:</h2>
+    <p>> Coding ofc :3</p>
+    <p>> Reading (dark romance ifykyk)</p>
+    <p>> Badminton (staying fit is necessary :P)</p>
+    <p>> Minecraft (gotta love the hustle :O)</p>
+</div>
+
+<div id="playlists" style="border:2px solid grey; width:500px; height:200px; padding:16px; position:absolute; top:80%; right:60%;border-radius: 32px; color: grey;">
+    <h2>My Playlists:</h2>
+
+    <a href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">
+        > my phonk playlist
+    </a>
+
+    <br><br>
+
+    <a href="https://www.youtube.com/playlist?list=PLT7Ol2AKWklDM96JOvUnGxAwjQfPcoVIT">
+        > gimme your recommendations!!
+    </a>
+</div>
+
+<div id="favserver" style="border:2px solid grey; width:500px; padding:16px; position:absolute; top:40%; right:60%;border-radius: 32px; color: grey;">
+    <h2>My Fav MC Servers:</h2>
+    <p>> Cubecraft</p>
+    <p>> Galaxite</p>
+    <p>> MinevilleZeqa</p>
+    <p>> HC SMP</p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
 
 </html>
