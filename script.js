@@ -1,10 +1,14 @@
 // Make the DIV element draggable:
-dragElement(document.getElementById("window"));
-dragElement(document.getElementById("favserver"));
+dragElement(document.getElementById("hobbies"));
+dragElement(document.getElementById("server"));
 dragElement(document.getElementById("playlists"));
 
 var hobbyClose = document.querySelector("#hobbyclose")
 var hobbyOpen = document.querySelector("#hobbyopen")
+var playlistClose = document.querySelector("#playlistclose");
+var playlistOpen = document.querySelector("#playlistopen");
+var serverOpen = document.querySelector("#serveropen");
+var serverClose = document.querySelector("#serverclose");
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -58,7 +62,9 @@ function dragElement(element) {
   }
 }
 
-const hobbyWindow = document.getElementById("window");
+const hobbyWindow = document.getElementById("hobbies");
+const playlistWindow = document.getElementById("playlists")
+const serverWindow = document.getElementById("server");
 
 function closeWindow(element) {
   element.style.display = "none"
@@ -75,6 +81,22 @@ hobbyClose.addEventListener("click", function() {
 hobbyOpen.addEventListener("click", function() {
   openWindow(hobbyWindow);
 });
+
+playlistOpen.addEventListener("click", function() {
+  openWindow(playlistWindow);
+})
+
+playlistClose.addEventListener("click", function() {
+  closeWindow(playlistWindow);
+})
+
+serverOpen.addEventListener("click", function() {
+  openWindow(serverWindow);
+})
+
+serverClose.addEventListener("click", function() {
+  closeWindow(serverWindow);
+})
 
  function updateTime() {
       var currentTime = new Date().toLocaleString();

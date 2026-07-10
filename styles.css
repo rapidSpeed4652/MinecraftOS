@@ -1,0 +1,23 @@
+.window
+{
+    border:10px solid #4f4f4f;
+    padding:16px;
+    position: absolute;
+    cursor: grab;
+    background-color: #c6c6c6;
+    width: 500px;
+    color: #686565;
+}
+
+.close_button
+{
+    cursor: pointer;
+    width: 30px;
+    position: absolute;
+}
+
+.hotbar_item
+{
+    cursor: pointer;
+    position: absolute;
+}

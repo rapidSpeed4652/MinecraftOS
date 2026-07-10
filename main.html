@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script type="module" src="./script.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
 <style>
 @font-face {
     font-family: myFont;
@@ -54,10 +58,14 @@ a:hover {
   </p>
 </div>
 
-<div id="welcome" styles="">
-  <h1 style="color: grey; position: absolute; top: 15%; right: 25%;">Welcome to MinecraftOS v.1.0!</h1>
+<div style="position: absolute; top: 10%; left: 30%;">
+    <img src="./Hotbar.png" width="600" height="70" />
+</div>
 
-  <p id="welcomeheader" style="color: grey; position: absolute; top: 25%; right: 38%;">
+<div id="welcome">
+  <h1 style="color: grey; position: absolute; top: 20%; right: 25%;">Welcome to MinecraftOS v.1.0!</h1>
+
+  <p id="welcomeheader" style="color: grey; position: absolute; top: 30%; right: 38%;">
 
       It describes my personality!
 
@@ -65,11 +73,13 @@ a:hover {
 </div>
 
 <div>
-    <p style="cursor: pointer; width: 900px; position: absolute; top: 3%;" id="hobbyopen">Open</p>
+    <img class="hotbar_item" style="top: 10%; right: 65%; width: 80px;" id="hobbyopen" src="./controller.png" />
+    <img class="hotbar_item" style="top: 10.5%; right: 60.8%; width: 65px;" id="serveropen" src="./command block.jpg" />
+    <img class="hotbar_item" style="top: 10.5%; right: 56.5%; width: 65px;" id="playlistopen" src="./music.png" />
 </div>
 
-<div id="window" style="border:2px solid grey; width:500px; padding:16px; position:absolute; top:40%; left:60%;border-radius: 32px; color: grey">
-    <p style="cursor: pointer; width: 80px; position: absolute; top: 3%;" id="hobbyclose">Close</p>
+<div class="window" id="hobbies" style="top:40%; left:60%">
+    <img class="close_button" style="top: 5%; right: 91%;" id="hobbyclose" src="./close button.png" />
     <h2>Hobbies:</h2>
     <p>> Coding ofc :3</p>
     <p>> Reading (dark romance ifykyk)</p>
@@ -77,7 +87,8 @@ a:hover {
     <p>> Minecraft (gotta love the hustle :O)</p>
 </div>
 
-<div id="playlists" style="border:2px solid grey; width:500px; height:200px; padding:16px; position:absolute; top:80%; right:60%;border-radius: 32px; color: grey;">
+<div class="window" id="playlists" style="height:200px; top:80%; right:60%;">
+    <img class="close_button" style="top: 5%; right: 91%;" id="playlistclose" src="./close button.png" />
     <h2>My Playlists:</h2>
 
     <a href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">
@@ -91,7 +102,8 @@ a:hover {
     </a>
 </div>
 
-<div id="favserver" style="border:2px solid grey; width:500px; padding:16px; position:absolute; top:40%; right:60%;border-radius: 32px; color: grey;">
+<div class="window" id="server" style="top:40%; right:60%;">
+    <img class="close_button" style="top: 5%; right: 91%;" id="serverclose" src="./close button.png" />
     <h2>My Fav MC Servers:</h2>
     <p>> Cubecraft</p>
     <p>> Galaxite</p>
