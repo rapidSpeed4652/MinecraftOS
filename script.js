@@ -1,14 +1,9 @@
 // Make the DIV element draggable:
-dragElement(document.getElementById("hobbies"));
-dragElement(document.getElementById("server"));
-dragElement(document.getElementById("playlists"));
-
-var hobbyClose = document.querySelector("#hobbyclose")
-var hobbyOpen = document.querySelector("#hobbyopen")
-var playlistClose = document.querySelector("#playlistclose");
-var playlistOpen = document.querySelector("#playlistopen");
-var serverOpen = document.querySelector("#serveropen");
-var serverClose = document.querySelector("#serverclose");
+initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbyheader");
+initialiseWindow("server", "serveropen", "serverclose", "serverheader");
+initialiseWindow("playlists", "playlistopen", "playlistclose", "playlistheader");
+initialiseWindow("notes", "notesopen", "notesclose", "notesheader");
+var biggestIndex = 1;
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -62,41 +57,46 @@ function dragElement(element) {
   }
 }
 
-const hobbyWindow = document.getElementById("hobbies");
-const playlistWindow = document.getElementById("playlists")
-const serverWindow = document.getElementById("server");
-
 function closeWindow(element) {
   element.style.display = "none"
   }
 
-  function openWindow(element) {
+function openWindow(element) {
   element.style.display = "block"
-  }
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+}
 
-hobbyClose.addEventListener("click", function() {
-  closeWindow(hobbyWindow);
-});
+function initialiseWindow(windowid, idopen, idclose, header)
+{
+   dragElement(document.getElementById(windowid));
+   var elementopen = document.querySelector("#" + idopen);
+   var elementclose = document.querySelector("#" + idclose);
+   var element = document.querySelector("#" + windowid);
 
-hobbyOpen.addEventListener("click", function() {
-  openWindow(hobbyWindow);
-});
+   addWindowTapHandling(element);
 
-playlistOpen.addEventListener("click", function() {
-  openWindow(playlistWindow);
-})
+   const elementWindow = document.getElementById(header);
 
-playlistClose.addEventListener("click", function() {
-  closeWindow(playlistWindow);
-})
+   elementopen.addEventListener("click", function() {
+    openWindow(elementWindow);
+   })
 
-serverOpen.addEventListener("click", function() {
-  openWindow(serverWindow);
-})
+   elementclose.addEventListener("click", function() {
+    closeWindow(elementWindow);
+   })
+}
 
-serverClose.addEventListener("click", function() {
-  closeWindow(serverWindow);
-})
+function addWindowTapHandling(element) {
+  element.addEventListener("mousedown", () =>
+    handleWindowTap(element)
+  )
+}
+
+function handleWindowTap(element) {
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+}
 
  function updateTime() {
       var currentTime = new Date().toLocaleString();
@@ -104,3 +104,73 @@ serverClose.addEventListener("click", function() {
       timeText.innerHTML = currentTime;
   }
   setInterval(updateTime, 1000);
+
+  var content = [
+  {
+    title: "Welcome",
+    date: "06/28/2023",
+    content: `
+              <p contenteditable="True">
+          <span contenteditable="true">Welcome to <strong>Journel</strong>
+            </br>
+            </br>
+            <img src=""
+              style="width: 96px; border-radius: 16px" />
+            </br>
+            </br>
+
+            This is a place where I store my thoughts as they come to mind. What exactly will you find when browsing
+            through
+            these notes? As I <del>once said</del> <ins>always say</ins>
+          </span>
+        <blockquote
+          style="background-color: #b4b1b182; margin-top: 16x; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; padding: 16px;"
+          contenteditable="true">
+          <i>Time Will Tell
+            </br>
+            ~ Thomas
+          </i>
+        </blockquote>
+        <span contenteditable="true">
+          I suppose you may see a bit of content about technology. Perhaps some insights regarding recent projects.
+          Maybe
+          even some thoughts regarding nature & tea? Go and find out!
+        </span>
+        </p>
+      `
+  }
+];
+
+function setNotesContent(index) {
+
+  var notesContent = document.querySelector("#notescontent")
+
+  notesContent.innerHTML = content[index].content
+}
+
+setNotesContent(0)
+
+function addToSideBar(index) 
+{
+  var sidebar = document.querySelector("#sidebar");
+  var note = content[index];
+  var newDiv = document.createElement("div");
+
+    newDiv.innerHTML = `
+    <p style="margin: 0px;">
+      ${note.title}
+    </p>
+    <p style="font-size: 12px; margin: 0px;">
+      ${note.date}
+    </p>
+  `;
+
+  newDiv.addEventListener("click", function() {
+    setNotesContent(index);
+  });
+  sidebar.appendChild(newDiv);
+}
+
+for (let i = 0; i < content.length; i++) {
+  addToSideBar(i)
+}

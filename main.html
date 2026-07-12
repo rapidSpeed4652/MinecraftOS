@@ -2,7 +2,6 @@
 <html>
 <head>
 
-<script type="module" src="./script.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 
 <style>
@@ -63,9 +62,9 @@ a:hover {
 </div>
 
 <div id="welcome">
-  <h1 style="color: grey; position: absolute; top: 20%; right: 25%;">Welcome to MinecraftOS v.1.0!</h1>
+  <h1 style="color: grey; position: absolute; top: 20%; right: 31%;">Welcome to MinecraftOS v.1.0!</h1>
 
-  <p id="welcomeheader" style="color: grey; position: absolute; top: 30%; right: 38%;">
+  <p id="welcomeheader" style="color: grey; position: absolute; top: 30%; right: 41%;">
 
       It describes my personality!
 
@@ -76,22 +75,23 @@ a:hover {
     <img class="hotbar_item" style="top: 10%; right: 65%; width: 80px;" id="hobbyopen" src="./controller.png" />
     <img class="hotbar_item" style="top: 10.5%; right: 60.8%; width: 65px;" id="serveropen" src="./command block.jpg" />
     <img class="hotbar_item" style="top: 10.5%; right: 56.5%; width: 65px;" id="playlistopen" src="./music.png" />
+    <img class="hotbar_item" style="top: 9%; right: 49.8%; width: 130px;" id="notesopen" src="./notes.png" />
 </div>
 
 <div class="window" id="hobbies" style="top:40%; left:60%">
-    <img class="close_button" style="top: 5%; right: 91%;" id="hobbyclose" src="./close button.png" />
-    <h2>Hobbies:</h2>
+    <div class="header" id="hobbyheader"><h3 style="position:absolute; top: -70%; left: 40%;">Hobbies</h3></div> 
+    <img class="close_button" style="top: 2.7%; right: 95%;" id="hobbyclose" src="./close button.png" />
+    <h2>    </h2>
     <p>> Coding ofc :3</p>
     <p>> Reading (dark romance ifykyk)</p>
     <p>> Badminton (staying fit is necessary :P)</p>
     <p>> Minecraft (gotta love the hustle :O)</p>
 </div>
 
-<div class="window" id="playlists" style="height:200px; top:80%; right:60%;">
-    <img class="close_button" style="top: 5%; right: 91%;" id="playlistclose" src="./close button.png" />
-    <h2>My Playlists:</h2>
-
-    <a href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">
+<div class="window" id="playlists" style="height:150px; top:80%; right:60%;">
+    <div class="header" id="playlistheader"><h3 style="position:absolute; top: -70%; left: 40%;">Playlists</h3></div> 
+    <img class="close_button" style="top: 3%; right: 95%;" id="playlistclose" src="./close button.png" />
+    <a style="position: absolute; top: 47%; right: 43%" href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">
         > my phonk playlist
     </a>
 
@@ -103,12 +103,28 @@ a:hover {
 </div>
 
 <div class="window" id="server" style="top:40%; right:60%;">
-    <img class="close_button" style="top: 5%; right: 91%;" id="serverclose" src="./close button.png" />
-    <h2>My Fav MC Servers:</h2>
+    <div class="header" id="serverheader"><h3 style="position:absolute; top: -70%; left: 30%;">My fav MC servers</h3></div>
+    <img class="close_button" style="top: 3%; right: 95%;" id="serverclose" src="./close button.png" />
+    <h2>   
+
+    </h2>
     <p>> Cubecraft</p>
     <p>> Galaxite</p>
     <p>> MinevilleZeqa</p>
     <p>> HC SMP</p>
+</div>
+
+<div class="window" id="notes" style="top:80%; left: 60%; width: 500px; height: 500px;">
+    <div class="header" id="notesheader"><h3 style="position:absolute; top: -70%; left: 40%;">Journel</h3></div>
+    <img class="close_button" style="top: 1.4%; right: 95%;" id="notesclose" src="./close button.png" />
+    <div id="sidebar" style="background-color: #918f8d; width: 150px; height: 450px; position: absolute; top: 10%; ">
+
+    </div>
+
+    <div id="notescontent" contenteditable="true" 
+         style="background-color: #898989; width: 330px; height: 450px; position: absolute; left: 35%; top: 10%">
+
+    </div>
 </div>
 
 <script src="script.js"></script>
