@@ -1,8 +1,9 @@
 // Make the DIV element draggable:
-initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbyheader");
+initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbiesheader");
 initialiseWindow("server", "serveropen", "serverclose", "serverheader");
-initialiseWindow("playlists", "playlistopen", "playlistclose", "playlistheader");
+initialiseWindow("playlists", "playlistsopen", "playlistsclose", "playlistsheader");
 initialiseWindow("notes", "notesopen", "notesclose", "notesheader");
+initialiseWindow("info", "infoopen", "infoclose", "infoheader");
 var biggestIndex = 1;
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -76,7 +77,7 @@ function initialiseWindow(windowid, idopen, idclose, header)
 
    addWindowTapHandling(element);
 
-   const elementWindow = document.getElementById(header);
+   const elementWindow = document.getElementById(windowid);
 
    elementopen.addEventListener("click", function() {
     openWindow(elementWindow);
@@ -108,7 +109,7 @@ function handleWindowTap(element) {
   var content = [
   {
     title: "Welcome",
-    date: "06/28/2023",
+    date: "13/07/2026",
     content: `
               <p contenteditable="True">
           <span contenteditable="true">Welcome to <strong>Journel</strong>
@@ -126,9 +127,9 @@ function handleWindowTap(element) {
         <blockquote
           style="background-color: #b4b1b182; margin-top: 16x; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; padding: 16px;"
           contenteditable="true">
-          <i>Time Will Tell
+          <i>i love potatoes
             </br>
-            ~ Thomas
+            ~ speed
           </i>
         </blockquote>
         <span contenteditable="true">
