@@ -77,62 +77,85 @@ a:hover {
 </div>
 
 <div class="window" id="hobbies" style="top:40%; left:60%">
-    <div class="header" id="hobbiesheader"><h3 style="position:absolute; top: -70%; left: 40%;">Hobbies</h3></div> 
-    <img class="close_button" style="top: 2.7%; right: 95%;" id="hobbyclose" src="./close button.png" />
-    <h2>    </h2>
-    <p>> Coding ofc :3</p>
-    <p>> Reading (dark romance ifykyk)</p>
-    <p>> Badminton (staying fit is necessary :P)</p>
-    <p>> Minecraft (gotta love the hustle :O)</p>
+    <div class="header" id="hobbiesheader">
+        <h3 class="header_text">Hobbies</h3>
+        <img class="close_button" id="hobbyclose" src="./close button.png" />
+        <img class="maximise_button" id="hobbymaximise" src="./maximise.png" />
+    </div>
+
+    <div class="content" id="hobbycontent">
+        <p>> Coding ofc :3</p>
+        <p>> Reading (dark romance ifykyk)</p>
+        <p>> Badminton (staying fit is necessary :P)</p>
+        <p>> Minecraft (gotta love the hustle :O)</p>
+    </div>
 </div>
 
 <div class="window" id="playlists" style="height:150px; top:80%; right:60%;">
-    <div class="header" id="playlistsheader"><h3 style="position:absolute; top: -70%; left: 40%;">Playlists</h3></div> 
-    <img class="close_button" style="top: 3%; right: 95%;" id="playlistsclose" src="./close button.png" />
-    <a style="position: absolute; top: 47%; right: 43%" href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">
-        > my phonk playlist
-    </a>
+    <div class="header" id="playlistsheader">
+        <h3 class="header_text">Playlists</h3>
+        <img class="close_button" id="playlistsclose" src="./close button.png" />
+        <img class="maximise_button" id="playlistmaximise" src="./maximise.png" />
+    </div>
 
-    <br><br>
+    <div class="content" id="playlistcontent">
+        <a href="https://youtube.com/playlist?list=PLT7Ol2AKWklCHK6BbOhhik7yre0k9Wv-M&si=TyrV-E7RGk2WcLam">
+            > my phonk playlist
+        </a>
 
-    <a href="https://www.youtube.com/playlist?list=PLT7Ol2AKWklDM96JOvUnGxAwjQfPcoVIT">
-        > gimme your recommendations!!
-    </a>
+        <br><br>
+
+        <a href="https://www.youtube.com/playlist?list=PLT7Ol2AKWklDM96JOvUnGxAwjQfPcoVIT">
+            > gimme your recommendations!!
+        </a>
+    </div>
 </div>
 
 <div class="window" id="server" style="top:40%; right:60%;">
-    <div class="header" id="serverheader"><h3 style="position:absolute; top: -70%; left: 30%;">My fav MC servers</h3></div>
-    <img class="close_button" style="top: 3%; right: 95%;" id="serverclose" src="./close button.png" />
-    <h2>   
-
-    </h2>
-    <p>> Cubecraft</p>
-    <p>> Galaxite</p>
-    <p>> MinevilleZeqa</p>
-    <p>> HC SMP</p>
+    <div class="header" id="serverheader">
+        <h3 class="header_text">My fav MC servers</h3>
+        <img class="close_button" id="serverclose" src="./close button.png" />
+        <img class="maximise_button" id="servermaximise" src="./maximise.png" />
+    </div>
+    
+    <div class="content" id="servercontent">
+        <p>> Cubecraft</p>
+        <p>> Galaxite</p>
+        <p>> MinevilleZeqa</p>
+        <p>> HC SMP</p>
+    </div>
 </div>
 
 <div class="window" id="notes" style="top:80%; left: 60%; width: 500px; height: 500px;">
-    <div class="header" id="notesheader"><h3 style="position:absolute; top: -70%; left: 40%;">Journel</h3></div>
-    <img class="close_button" style="top: 1.4%; right: 95%;" id="notesclose" src="./close button.png" />
-    <div id="sidebar" style="background-color: #918f8d; width: 150px; height: 450px; position: absolute; top: 10%;">
-
+    <div class="header" id="notesheader">
+        <h3 class="header_text">Journel</h3>
+        <img class="close_button" id="notesclose" src="./close button.png" />
+        <img class="maximise_button" id="notesmaximise" src="./maximise.png" />
     </div>
 
-    <div id="notescontent" contenteditable="true" 
-         style="background-color: #898989; width: 330px; height: 450px; position: absolute; left: 35%; top: 10%">
+    <div class="notes-container">
+        <div id="sidebar" style="background-color: #918f8d;"></div>
 
+        <div id="notescontent" contenteditable="true" 
+            style="background-color: #898989;">
+        </div>
     </div>
 </div>
 
 <div class="window" id="info" style="bottom: -55%; right: 60%; height: 300px; width: 500px;">
-    <div class="header" id="infoheader"><h3 style="position:absolute; top: -70%; left: 35%;">Who made me?</h3></div>
-    <img class="close_button" style="top: 1.4%; right: 95%;" id="infoclose" src="./close button.png" />
-    <img style="position: absolute; top: 20%; right: 65%; height: 200px; width: 160px; border-radius: 50%;" src="./pfp.png" />
-    <h3 style="position: absolute; top: 20%; left: 40%;">rapid_speed</h3>
-    <p style="position: absolute; top: 32%; left: 38%;">You should definitely follow the guy on </p>
-    <a style="position: absolute; top: 53%; left: 40%;" href="https://stardance.hackclub.com/@rapidSpeed">> stardance</a>
-    <a style="position: absolute; top: 60%; left: 40%;" href="https://hackclub.enterprise.slack.com/team/U0BF0SMUBCK">> slack</a>
+    <div class="header" id="infoheader">
+        <h3 class="header_text">Who made me?</h3>
+        <img class="close_button" id="infoclose" src="./close button.png" />
+        <img class="maximise_button" id="infomaximise" src="./maximise.png" />
+    </div>
+
+    <div class="content" id="infocontent">
+        <img style="position: absolute; top: 20%; right: 65%; height: 200px; width: 160px; border-radius: 50%;" src="./pfp.png" />
+        <h3 style="position: absolute; top: 20%; left: 40%;">rapid_speed</h3>
+        <p style="position: absolute; top: 32%; left: 38%;">You should definitely follow the guy on </p>
+        <a style="position: absolute; top: 53%; left: 40%;" href="https://stardance.hackclub.com/@rapidSpeed">> stardance</a>
+        <a style="position: absolute; top: 60%; left: 40%;" href="https://hackclub.enterprise.slack.com/team/U0BF0SMUBCK">> slack</a>
+    </div>
 </div>
 
 <script src="script.js"></script>

@@ -1,9 +1,9 @@
 // Make the DIV element draggable:
-initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbiesheader");
-initialiseWindow("server", "serveropen", "serverclose", "serverheader");
-initialiseWindow("playlists", "playlistsopen", "playlistsclose", "playlistsheader");
-initialiseWindow("notes", "notesopen", "notesclose", "notesheader");
-initialiseWindow("info", "infoopen", "infoclose", "infoheader");
+initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbiesheader", "hobbymaximise");
+initialiseWindow("server", "serveropen", "serverclose", "serverheader", "servermaximise");
+initialiseWindow("playlists", "playlistsopen", "playlistsclose", "playlistsheader", "playlistmaximise");
+initialiseWindow("notes", "notesopen", "notesclose", "notesheader", "notesmaximise");
+initialiseWindow("info", "infoopen", "infoclose", "infoheader", "infomaximise");
 var biggestIndex = 1;
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -27,11 +27,17 @@ function dragElement(element) {
 
   // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
   function startDragging(e) {
+
+    if (element.classList.contains("maximized"))
+      return;
+
     e = e || window.event;
     e.preventDefault();
+
     // Step 7: Get the mouse cursor position at startup.
     initialX = e.clientX;
     initialY = e.clientY;
+
     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
     document.onmousemove = dragElement;
@@ -63,17 +69,18 @@ function closeWindow(element) {
   }
 
 function openWindow(element) {
-  element.style.display = "block"
+  element.style.display = "flex"
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
 }
 
-function initialiseWindow(windowid, idopen, idclose, header)
+function initialiseWindow(windowid, idopen, idclose, header, idmaximise)
 {
    dragElement(document.getElementById(windowid));
    var elementopen = document.querySelector("#" + idopen);
    var elementclose = document.querySelector("#" + idclose);
    var element = document.querySelector("#" + windowid);
+   var elementmaximise = document.querySelector("#" + idmaximise);
 
    addWindowTapHandling(element);
 
@@ -85,6 +92,10 @@ function initialiseWindow(windowid, idopen, idclose, header)
 
    elementclose.addEventListener("click", function() {
     closeWindow(elementWindow);
+   })
+
+   elementmaximise.addEventListener("click", function() {
+    toggleMaximize(elementWindow);
    })
 }
 
@@ -105,6 +116,34 @@ function handleWindowTap(element) {
       timeText.innerHTML = currentTime;
   }
   setInterval(updateTime, 1000);
+
+  function toggleMaximize(element) {
+
+    const button = element.querySelector(".maximize_button");
+
+    if (!element.classList.contains("maximized")) {
+
+        // Save current position & size
+        element.dataset.oldTop = element.style.top;
+        element.dataset.oldLeft = element.style.left;
+        element.dataset.oldWidth = element.style.width;
+        element.dataset.oldHeight = element.style.height;
+
+        element.classList.add("maximized");
+
+
+    } else {
+
+        element.classList.remove("maximized");
+
+        element.style.top = element.dataset.oldTop;
+        element.style.left = element.dataset.oldLeft;
+        element.style.width = element.dataset.oldWidth;
+        element.style.height = element.dataset.oldHeight;
+    }
+
+    handleWindowTap(element);
+}
 
   var content = [
   {
