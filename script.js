@@ -1,9 +1,4 @@
 // Make the DIV element draggable:
-initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbiesheader", "hobbymaximise");
-initialiseWindow("server", "serveropen", "serverclose", "serverheader", "servermaximise");
-initialiseWindow("playlists", "playlistsopen", "playlistsclose", "playlistsheader", "playlistmaximise");
-initialiseWindow("notes", "notesopen", "notesclose", "notesheader", "notesmaximise");
-initialiseWindow("info", "infoopen", "infoclose", "infoheader", "infomaximise");
 var biggestIndex = 1;
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -66,12 +61,29 @@ function dragElement(element) {
 
 function closeWindow(element) {
   element.style.display = "none"
+  if (element.id === "eaglercraft") {
+        element.querySelector("#eaglercraftcontent").innerHTML = "";
+    }
   }
 
 function openWindow(element) {
+  console.trace("Opening:", element.id);
   element.style.display = "flex"
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
+
+  if (element.id === "eaglercraft") {
+        const content = element.querySelector("#eaglercraftcontent");
+
+        if (content.innerHTML === "") {
+            content.innerHTML = `
+                <iframe
+                    src="eaglercraftX.html"
+                    style="width:100%;height:100%;border:none;">
+                </iframe>
+            `;
+        }
+    }
 }
 
 function initialiseWindow(windowid, idopen, idclose, header, idmaximise)
@@ -85,6 +97,13 @@ function initialiseWindow(windowid, idopen, idclose, header, idmaximise)
    addWindowTapHandling(element);
 
    const elementWindow = document.getElementById(windowid);
+
+   console.log(windowid, idmaximise, elementmaximise);
+   
+   if(!elementmaximise)
+   {
+      console.error("Couldn't find: ", idmaximise);
+   }
 
    elementopen.addEventListener("click", function() {
     openWindow(elementWindow);
@@ -214,3 +233,10 @@ function addToSideBar(index)
 for (let i = 0; i < content.length; i++) {
   addToSideBar(i)
 }
+
+initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbiesheader", "hobbymaximise");
+initialiseWindow("server", "serveropen", "serverclose", "serverheader", "servermaximise");
+initialiseWindow("playlists", "playlistsopen", "playlistsclose", "playlistsheader", "playlistmaximise");
+initialiseWindow("notes", "notesopen", "notesclose", "notesheader", "notesmaximise");
+initialiseWindow("info", "infoopen", "infoclose", "infoheader", "infomaximise");
+initialiseWindow("eaglercraft", "eaglercraftopen", "eaglercraftclose", "eaglercraftheader", "eaglercraftmaximise");
