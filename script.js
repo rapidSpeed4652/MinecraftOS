@@ -1,5 +1,7 @@
 // Make the DIV element draggable:
 var biggestIndex = 1;
+const input = document.getElementById('inputtext');
+const buttons = document.querySelectorAll('button');
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -68,6 +70,8 @@ function closeWindow(element) {
 
 function openWindow(element) {
   console.trace("Opening:", element.id);
+  element.style.left = event.clientX + "px";
+  element.style.top = event.clientY + "px";
   element.style.display = "flex"
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
@@ -234,9 +238,48 @@ for (let i = 0; i < content.length; i++) {
   addToSideBar(i)
 }
 
+function operation(buttonValue)
+{
+  if(buttonValue == 'C')
+  {
+    input.value = ' ';
+  }
+  else if (buttonValue == 'DEL')
+  {
+    input.value = input.value.slice(0,-1);
+  }
+  else if(buttonValue == '=')
+  {
+    input.value = calculate(input.value);
+  }
+  else
+  {
+    input.value += buttonValue;
+  }
+}
+
+function calculate(expression)
+{
+  console.log(expression);
+  try
+  {
+    return new Function('return ' + expression)();
+  }
+  catch(error)
+  {
+    return 'Malformed Operation';
+  }
+}
+
+buttons.forEach(button=> {
+  let buttonValue = button.innerText;
+  button.addEventListener('click', function(){operation(buttonValue)})
+});
+
 initialiseWindow("hobbies", "hobbyopen", "hobbyclose", "hobbiesheader", "hobbymaximise");
 initialiseWindow("server", "serveropen", "serverclose", "serverheader", "servermaximise");
 initialiseWindow("playlists", "playlistsopen", "playlistsclose", "playlistsheader", "playlistmaximise");
 initialiseWindow("notes", "notesopen", "notesclose", "notesheader", "notesmaximise");
 initialiseWindow("info", "infoopen", "infoclose", "infoheader", "infomaximise");
 initialiseWindow("eaglercraft", "eaglercraftopen", "eaglercraftclose", "eaglercraftheader", "eaglercraftmaximise");
+initialiseWindow("calc", "calcopen", "calcclose", "calcheader");
